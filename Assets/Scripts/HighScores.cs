@@ -83,7 +83,7 @@ public class HighScores : MonoBehaviour
                 tempTMP = rows[i].AddComponent<TextMeshProUGUI>();
                 tempRT = rows[i].GetComponent<RectTransform>();
 
-                tempRT.sizeDelta = new Vector2(50, 20);
+                tempRT.sizeDelta = new Vector2(50, 0);
 
                 tempRT.anchorMin = new Vector2(0.5f, 1);
                 tempRT.anchorMax = new Vector2(0.5f, 1);
@@ -111,7 +111,7 @@ public class HighScores : MonoBehaviour
                     {
                         GameObject tempLine = Instantiate(linePrefab, transform);
                         tempLine.transform.localPosition = tempRT.localPosition;
-                        tempLine.transform.Translate(new Vector3(102f, -5f, 0));
+                        tempLine.transform.Translate(new Vector3(102f, -24f, 0));
                     }
                     
                 }
@@ -128,7 +128,7 @@ public class HighScores : MonoBehaviour
                             RectTransform highlightRT = highlight.GetComponent<RectTransform>();
 
                             highlightRT.localPosition = tempRT.localPosition;
-                            highlightRT.Translate(new Vector3(62f, 8.5f, 0));
+                            highlightRT.Translate(new Vector3(62f, -10.5f, 0));
 
                         }
 
