@@ -91,8 +91,9 @@ public class HighScores : MonoBehaviour
                 tempRT.localPosition = new Vector3(offsetX, offsetY, 0);
 
            
-
+                
                 tempTMP.color = tempColor;
+                
                 tempTMP.fontSize = 18;
                 tempTMP.fontStyle = FontStyles.Bold;
 
@@ -117,6 +118,12 @@ public class HighScores : MonoBehaviour
                 {
                     if (i < highscoresSorted.Count)
                     {
+
+                        if( Main.s.namePlayer == highscoresSorted[i].namePlayer )
+                        {
+                            tempTMP.fontStyle = FontStyles.Underline;
+                        }
+
                         tempTMP.text = highscoresSorted[i].namePlayer;
                     } 
                     else
