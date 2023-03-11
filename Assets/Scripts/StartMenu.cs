@@ -28,8 +28,6 @@ public class StartMenu : MonoBehaviour
         
         nameField.onValueChanged.AddListener(inputEven);
 
-        Main.s.LoadGame();
-
         if (Main.s.playersData.currNamePlayer != "")
         {
             Main.s.CalcBestScore();
@@ -49,12 +47,14 @@ public class StartMenu : MonoBehaviour
     void NameEnter( string inputText )
     {
         Main.s.namePlayer = inputText;
+
+        if( Main.s.scores != 0 ) { Main.s.scores = 0; }
     }
 
     public void StartGame()
     {
         Main.s.SaveGame();
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(3);
     }
 
     public void OpenHighscores()

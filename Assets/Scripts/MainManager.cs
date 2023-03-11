@@ -56,7 +56,7 @@ public class MainManager : MonoBehaviour
                 forceDir.Normalize();
 
                 Ball.transform.SetParent(null);
-                Ball.AddForce(forceDir * 2.0f, ForceMode.VelocityChange);
+                Ball.AddForce(forceDir * Main.s.startImpulse, ForceMode.VelocityChange);
             }
         }
         else if (m_GameOver)
@@ -70,7 +70,7 @@ public class MainManager : MonoBehaviour
 
     void AddPoint(int point)
     {
-        m_Points += point;
+        m_Points += point * Main.s.scoresMulty;
         ScoreText.text = $"Score : {m_Points}";
     }
 

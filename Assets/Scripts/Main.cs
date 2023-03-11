@@ -22,6 +22,12 @@ public class Main : MonoBehaviour
 
     public AllPlayersData playersData;
 
+
+    public float accelerationFactor = 0.01f;
+    public float maxVelocity = 3.0f;
+    public float startImpulse = 2.0f;
+    public int scoresMulty = 1;
+
     private void Awake()
     {
 
@@ -35,6 +41,8 @@ public class Main : MonoBehaviour
         path = Application.persistentDataPath + "/saveDate.json";
 
         DontDestroyOnLoad(gameObject);
+
+        LoadGame();
 
     }
 
@@ -98,10 +106,13 @@ public class Main : MonoBehaviour
 
             foreach (PlayerData player in playersData.arrPlayers)
             {
-                if (player.namePlayer.ToLower() == namePlayer.ToLower())
+                if (player.namePlayer.ToLower() == namePlayer.ToLower() )
                 {
-                    player.scores = scores;
-                    //playersData.arrPlayers[i].scores = scores;
+                    if(player.scores < scores)
+                    {
+                       player.scores = scores;
+                    }
+                    
                     return;
                 }
 
