@@ -7,8 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class HighScores : MonoBehaviour
 {
-
-    public GameObject linePrefab;
+    [SerializeField]
+    GameObject linePrefab;
+    [SerializeField]
+    GameObject highlight;
 
     GameObject[] rows = new GameObject[10];
 
@@ -119,9 +121,15 @@ public class HighScores : MonoBehaviour
                     if (i < highscoresSorted.Count)
                     {
 
-                        if( Main.s.namePlayer == highscoresSorted[i].namePlayer )
+                        if( Main.s.namePlayer.ToUpper() == highscoresSorted[i].namePlayer.ToUpper() )
                         {
-                            tempTMP.fontStyle = FontStyles.Underline;
+
+                            highlight.SetActive(true);
+                            RectTransform highlightRT = highlight.GetComponent<RectTransform>();
+
+                            highlightRT.localPosition = tempRT.localPosition;
+                            highlightRT.Translate(new Vector3(62f, 8.5f, 0));
+
                         }
 
                         tempTMP.text = highscoresSorted[i].namePlayer;
